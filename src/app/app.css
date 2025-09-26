@@ -47,3 +47,16 @@
   font-size: 14px;
   font-weight: bold;
 }
+.about-gallery img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover; /* обрезает лишнее, чтобы сохранить пропорции */
+  border-radius: 15px;
+  margin: 20px auto;
+  display: block; /* чтобы margin auto работал */
+  transition: transform 0.3s ease;
+}
+
+.about-gallery img:hover {
+  transform: scale(1.05);
+}
