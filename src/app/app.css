@@ -1,5 +1,4 @@
 .about {
-  cursor: pointer;
   background-color: #6b062d;
   color: #ffffff;
   padding-top: 20px;
@@ -116,4 +115,8 @@ button:disabled {
 .likes p.popular {
   color: gold;
   font-size: 18px;
+}
+
+input {
+  margin-right: 10px;
 }

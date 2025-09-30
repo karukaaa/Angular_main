@@ -67,5 +67,12 @@
     <div class="text-center mt-2">
       <button (click)="changeButton()">Change Instagram Button</button>
     </div>
+
+    <div class="text-center mt-4">
+      <input type="email" [(ngModel)]="email" placeholder="Leave your email" />
+      <button (click)="subscribe()">Subscribe</button>
+
+      <p>{{ emailMessage() || '...' }}</p>
+    </div>
   </div>
 </section>

@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -14,6 +15,10 @@ export class App {
   place = signal("Almaty");
   isButtonEnabled = signal(false);
 
+  email = '';
+  emailMessage = signal('')
+  subscribed: boolean = false;
+
   logo = signal("logo.jpg");
   instagramUrl = signal("https://www.instagram.com/aruri_shop/");
 
@@ -23,8 +28,13 @@ export class App {
   }
 
   likes = [signal(0), signal(0), signal(0)];
-
   onLike(index:number){
     this.likes[index].update(value=>value+1);
+  }
+
+  subscribe(){
+    this.subscribed = true;
+    const newMessage = `Thanks, ${this.email}, we’ll be in touch!`;
+    this.emailMessage.set(newMessage);
   }
 }
