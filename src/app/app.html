@@ -1,5 +1,7 @@
 <section class="text-center about">
-  <h1>About US</h1>
+  <img class="logo" [src]="logo()" alt="logo" />
+  <h1>About Us - {{ name() }}</h1>
+  <h2>Stationed in {{ place() }}</h2>
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-sm-6 col-12 about-item wow lightSpeedIn" data-wow-offset="200">
@@ -34,14 +36,36 @@
       <div class="row">
         <div class="col-lg-4 col-sm-6 col-12">
           <img src="/main_pic1.jpg" alt="Jewelry 1" />
+          <div class="likes">
+            <button (click)="onLike(0)">Like❤️</button>
+            <p [class.popular]="likes[0]() >= 5">{{ likes[0]() }}</p>
+          </div>
         </div>
         <div class="col-lg-4 col-sm-6 col-12">
           <img src="/main_pic2.jpg" alt="Jewelry 1" />
+          <div class="likes">
+            <button (click)="onLike(1)">Like❤️</button>
+            <p [class.popular]="likes[1]() >= 5">{{ likes[1]() }}</p>
+          </div>
         </div>
         <div class="col-lg-4 col-sm-6 col-12">
           <img src="/main_pic3.jpg" alt="Jewelry 1" />
+          <div class="likes">
+            <button (click)="onLike(2)">Like❤️</button>
+            <p [class.popular]="likes[2]() >= 5">{{ likes[2]() }}</p>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a [href]="instagramUrl()" target="_blank">
+        <button [disabled]="isInstagramButtonEnabled()">Visit our Instagram</button>
+      </a>
+    </div>
+
+    <div class="text-center mt-2">
+      <button (click)="changeButton()">Change Instagram Button</button>
     </div>
   </div>
 </section>

@@ -5,6 +5,18 @@
   padding-top: 20px;
   padding-bottom: 30px;
 }
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px;
+}
+
 .about h1 {
   padding: 10px 0;
   margin-bottom: 20px;
@@ -24,7 +36,7 @@
   opacity: 0.7;
   background-color: #4c0822;
   border: 2px solid #4c0822;
-  transition: all 0.5s ease;
+  transition: 0.5s;
 }
 .about-item:hover span {
   opacity: 1;
@@ -50,13 +62,58 @@
 .about-gallery img {
   width: 250px;
   height: 300px;
-  object-fit: cover; /* обрезает лишнее, чтобы сохранить пропорции */
+  object-fit: cover;
   border-radius: 15px;
   margin: 20px auto;
-  display: block; /* чтобы margin auto работал */
-  transition: transform 0.3s ease;
+  display: block;
+  transition: 0.3s;
 }
 
 .about-gallery img:hover {
   transform: scale(1.05);
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #4c0822;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.likes {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.likes button {
+  background-color: #cc0039;
+  color: #fff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.likes button:hover {
+  background-color: #a0022c;
+}
+
+.likes p {
+  margin-top: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.likes p.popular {
+  color: gold;
+  font-size: 18px;
 }
