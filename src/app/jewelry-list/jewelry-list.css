@@ -1,0 +1,70 @@
+/* Общие стили для списка */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 40px auto;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+/* Каждый элемент списка */
+li {
+  background-color: #5b0a28;
+  color: #fff8f0;
+  padding: 20px 30px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 800px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Эффект при наведении */
+li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Названия украшений */
+li strong {
+  color: #ffdf6c;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Кнопка загрузки */
+button {
+  display: block;
+  margin: 40px auto 20px auto;
+  padding: 12px 28px;
+  background-color: #ffb703;
+  border: none;
+  border-radius: 8px;
+  color: #2a0d16;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Эффект при наведении */
+button:hover {
+  background-color: #ffd166;
+  transform: translateY(-2px);
+}
+
+/* Текст при отсутствии данных */
+p {
+  color: #ffe3e3;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 30px;
+  opacity: 0.85;
+  font-family: 'Poppins', sans-serif;
+}

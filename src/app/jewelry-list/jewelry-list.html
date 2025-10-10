@@ -1,0 +1,13 @@
+<button (click)="loadJewelry()">Load</button>
+
+@if(isLoaded == true && jewelryList.length > 0){
+<ul>
+  @for (item of jewelryList; track item.id){
+  <li>
+    <strong>{{ item.name }}</strong> - {{ item.description }}
+  </li>
+  }
+</ul>
+} @else {
+<p>No jewelry yet</p>
+}
