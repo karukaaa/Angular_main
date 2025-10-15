@@ -1,6 +1,14 @@
 <button (click)="loadJewelry()">Load</button>
 
-@if(isLoaded == true && jewelryList.length > 0){
+@if(isLoaded == true){
+
+<input
+  type="search"
+  placeholder="Enter name/description"
+  (input)="onSearch($any($event.target).value)"
+/>
+
+@if(jewelryList.length>0){
 <ul>
   @for (item of jewelryList; track item.id){
   <li>
@@ -10,4 +18,4 @@
 </ul>
 } @else {
 <p>No jewelry yet</p>
-}
+} }
