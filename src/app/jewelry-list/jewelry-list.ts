@@ -7,24 +7,24 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   standalone: true,
   templateUrl: './jewelry-list.html',
-  styleUrl: './jewelry-list.css'
+  styleUrl: './jewelry-list.css',
 })
-export class JewelryList implements OnInit{
-    jewelryList: Jewelry[] = [];
-    isLoaded = false;
+export class JewelryList implements OnInit {
+  jewelryList: Jewelry[] = [];
+  isLoaded = false;
 
-    constructor(private jewelryService: JewelryService){}
+  constructor(private jewelryService: JewelryService) {}
+  //this is branch live search
+  ngOnInit(): void {
+    this.jewelryService.getJewelry().subscribe({
+      next: (data) => {
+        this.jewelryList = data;
+        console.log(data);
+      },
+    });
+  }
 
-    ngOnInit(): void {
-      this.jewelryService.getJewelry().subscribe({
-        next: (data) => {
-            this.jewelryList = data;
-            console.log(data)
-        }
-      })
-    }
-
-    loadJewelry(): void{
-      this.isLoaded = true;
-    }
+  loadJewelry(): void {
+    this.isLoaded = true;
+  }
 }
