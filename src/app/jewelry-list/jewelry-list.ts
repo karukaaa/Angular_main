@@ -16,14 +16,12 @@ export class JewelryList implements OnInit {
   isLoaded = false;
   private searchTerms = new Subject<string>();
   jewelryList: Jewelry[] = [];
-  allJewelry: Jewelry[] = [];
 
   constructor(private jewelryService: JewelryService) {}
 
   ngOnInit(): void {
     this.jewelryService.getJewelry().subscribe({
       next: (data) => {
-        this.allJewelry = data;
         this.jewelryList = data;
       },
       error: (err) => console.log(err),
@@ -32,31 +30,21 @@ export class JewelryList implements OnInit {
     this.searchTerms
       .pipe(
         debounceTime(200),
-        switchMap((term) => {
-          const trimmed = term.trim().toLowerCase();
-
-          if (trimmed === '') {
-            return of(this.allJewelry);
-          }
-
-          return of(
-            this.allJewelry.filter((item) =>
-              (item.description + item.name).toLowerCase().includes(trimmed)
-            )
-          );
-        })
+        switchMap((term) => this.jewelryService.searchJewelry(term))
       )
-      .subscribe((result) => {
-        this.jewelryList = result;
+      .subscribe({
+        next: (results) => {
+          this.jewelryList = results;
+        },
+        error: (err) => console.log(err),
       });
   }
 
   loadJewelry(): void {
-    this.jewelryList = this.allJewelry;
     this.isLoaded = true;
   }
 
-  onSearch(query: string): void {
-    this.searchTerms.next(query);
+  onSearch(term: string): void {
+    this.searchTerms.next(term);
   }
 }

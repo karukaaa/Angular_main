@@ -14,8 +14,13 @@ export class JewelryService {
     return this.http.get<Jewelry[]>(this.apiUrl);
   }
 
-  public searchJewelry(query: string): Observable<Jewelry[]> {
-    return this.http.get<Jewelry[]>(`${this.apiUrl}?q=${query}`);
+  public searchJewelry(term: string): Observable<Jewelry[]> {
+    const trimmed = term.trim();
+    if (!trimmed) {
+      return this.getJewelry();
+    }
+
+    return this.http.get<Jewelry[]>(`${this.apiUrl}?q=${trimmed}`);
   }
 }
 
