@@ -10,17 +10,10 @@ export class JewelryService {
 
   constructor(private http: HttpClient) {}
 
-  public getJewelry(): Observable<Jewelry[]> {
-    return this.http.get<Jewelry[]>(this.apiUrl);
-  }
+  public getJewelry(term: string): Observable<Jewelry[]> {
+    const termRequest = term ? `?q=${term}` : '';
 
-  public searchJewelry(term: string): Observable<Jewelry[]> {
-    const trimmed = term.trim();
-    if (!trimmed) {
-      return this.getJewelry();
-    }
-
-    return this.http.get<Jewelry[]>(`${this.apiUrl}?q=${trimmed}`);
+    return this.http.get<Jewelry[]>(`${this.apiUrl}${termRequest}`);
   }
 }
 

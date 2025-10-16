@@ -1,14 +1,14 @@
-<button (click)="loadJewelry()">Load</button>
+<div class="search-bar">
+  <input
+    type="search"
+    placeholder="Enter name/description"
+    [value]="query"
+    (input)="onInput($event)"
+  />
+  <button (click)="loadJewelry()">Load</button>
+</div>
 
-@if(isLoaded == true){
-
-<input
-  type="search"
-  placeholder="Enter name/description"
-  (input)="onSearch($any($event.target).value)"
-/>
-
-@if(jewelryList.length>0){
+@if(isLoaded == true){ @if(jewelryList.length>0){
 <ul>
   @for (item of jewelryList; track item.id){
   <li>
