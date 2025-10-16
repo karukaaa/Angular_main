@@ -21,4 +21,19 @@ export interface Jewelry {
   id: number;
   name: string;
   description: string;
+  type: string;
+  material: string;
+  size: string;
+  price: number;
+  img: string;
+  currency: string;
+  availability: boolean;
+  stones: string[];
+  weight: string;
+  style: string;
+  collection: {
+    name: string;
+    description: string;
+    creationDate: string;
+  };
 }
