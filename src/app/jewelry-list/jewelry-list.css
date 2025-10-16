@@ -1,4 +1,3 @@
-/* Общие стили для списка */
 ul {
   list-style: none;
   padding: 0;
@@ -10,7 +9,6 @@ ul {
   align-items: center;
 }
 
-/* Каждый элемент списка */
 li {
   background-color: #5b0a28;
   color: #fff8f0;
@@ -25,20 +23,17 @@ li {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Эффект при наведении */
 li:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* Названия украшений */
 li strong {
   color: #ffdf6c;
   font-size: 20px;
   letter-spacing: 0.5px;
 }
 
-/* Кнопка загрузки */
 button {
   display: block;
   margin: 40px auto 20px auto;
@@ -67,4 +62,42 @@ p {
   margin-top: 30px;
   opacity: 0.85;
   font-family: 'Poppins', sans-serif;
+}
+
+/* Поле ввода */
+input[type='search'] {
+  display: block;
+  margin: 20px auto 30px auto;
+  width: 90%;
+  max-width: 500px;
+  padding: 14px 20px;
+
+  background-color: #3e071d;
+  border: 2px solid #ffb703;
+  border-radius: 10px;
+  color: #fff8f0;
+
+  font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+
+  outline: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(255, 183, 3, 0.1);
+}
+
+/* Эффект при фокусе */
+input[type='search']:focus {
+  border-color: #ffd166;
+  box-shadow: 0 0 18px rgba(255, 183, 3, 0.45);
+  background-color: #50102b;
+  transform: scale(1.02);
+}
+
+/* Placeholder (текст внутри поля) */
+input[type='search']::placeholder {
+  color: #ffdf6c;
+  opacity: 0.7;
+  font-weight: 400;
+  letter-spacing: 0.3px;
 }
