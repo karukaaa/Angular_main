@@ -1,0 +1,76 @@
+h1 {
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+h2 {
+  padding: 10px 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.about-gallery img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 20px auto;
+  display: block;
+  transition: 0.3s;
+}
+
+.about-gallery img:hover {
+  transform: scale(1.05);
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #4c0822;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.likes {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.likes button {
+  background-color: #cc0039;
+  color: #fff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.likes button:hover {
+  background-color: #a0022c;
+}
+
+.likes p {
+  margin-top: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.likes p.popular {
+  color: gold;
+  font-size: 18px;
+}
+
+input {
+  margin-right: 10px;
+}

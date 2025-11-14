@@ -5,8 +5,9 @@ ul {
   max-width: 1300px;
   width: 95%;
   display: flex;
-  flex-direction: column;
-  gap: 45px;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
 
 li {
