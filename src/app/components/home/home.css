@@ -1,17 +1,35 @@
+/* ===== HEADERS ===== */
 h1 {
   padding: 10px 0;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
   color: #fff;
-}
-h2 {
-  padding: 10px 0;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
+h2 {
+  padding: 5px 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ffccd5;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+/* ===== DESCRIPTION TEXT ===== */
+.description {
+  max-width: 850px;
+  margin: 0 auto 30px;
+  color: #ffd8e4;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 0 15px;
+}
+
+/* ===== GALLERY IMAGES ===== */
 .about-gallery img {
   width: 250px;
   height: 300px;
@@ -20,27 +38,16 @@ h2 {
   margin: 20px auto;
   display: block;
   transition: 0.3s;
+  border: 2px solid #4c0822;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
 }
 
 .about-gallery img:hover {
   transform: scale(1.05);
+  border-color: #cc0039;
 }
 
-button {
-  padding: 10px 20px;
-  border-radius: 25px;
-  background-color: #4c0822;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-button:disabled {
-  background-color: #888;
-  cursor: not-allowed;
-}
-
+/* ===== LIKE BUTTONS ===== */
 .likes {
   margin-top: 10px;
   text-align: center;
@@ -54,6 +61,7 @@ button:disabled {
   border-radius: 20px;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 14px;
 }
 
 .likes button:hover {
@@ -64,6 +72,7 @@ button:disabled {
   margin-top: 5px;
   font-weight: bold;
   color: #fff;
+  font-size: 14px;
 }
 
 .likes p.popular {
@@ -71,6 +80,43 @@ button:disabled {
   font-size: 18px;
 }
 
-input {
+/* ===== MAIN BUTTONS ===== */
+button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #4c0822;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #cc0039;
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* ===== SUBSCRIBE BOX ===== */
+.subscribe-box input {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
   margin-right: 10px;
+}
+
+.subscribe-box button {
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.email-message {
+  margin-top: 10px;
+  color: #ffe6ed;
+  font-size: 14px;
 }

@@ -2,17 +2,19 @@
   <img class="logo" [src]="logo()" alt="logo" />
   <h1>About Us - {{ name() }}</h1>
   <h2>Stationed in {{ place() }}</h2>
+
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-sm-6 col-12 about-item wow lightSpeedIn" data-wow-offset="200">
+      <div class="col-lg-4 col-sm-6 col-12 about-item">
         <span class="fa fa-group"></span>
         <h2>Customers</h2>
         <p class="lead">
           We value every customer and bring their ideas to life. With our custom jewelry service,
-          you can design a piece that reflects your style and story
+          you can design a piece that reflects your style and story.
         </p>
       </div>
-      <div class="col-lg-4 col-sm-6 col-12 about-item wow lightSpeedIn" data-wow-offset="200">
+
+      <div class="col-lg-4 col-sm-6 col-12 about-item">
         <span class="fa fa-info"></span>
         <h2>About Us</h2>
         <p class="lead">
@@ -21,7 +23,8 @@
           modern trends.
         </p>
       </div>
-      <div class="col-lg-4 col-sm-6 col-12 about-item wow lightSpeedIn" data-wow-offset="200">
+
+      <div class="col-lg-4 col-sm-6 col-12 about-item">
         <span class="fa fa-file"></span>
         <h2>Catalog</h2>
         <p class="lead">
@@ -29,6 +32,26 @@
           pieces. Every item is carefully handcrafted and quality-checked, with new styles added
           regularly.
         </p>
+      </div>
+    </div>
+
+    <!-- Store description + gallery -->
+    <div class="store-description mt-5">
+      <p class="lead about-text">
+        Our jewelry is fully handmade in Almaty, crafted with care using natural gemstones sourced
+        from trusted suppliers. Each piece is designed to highlight the stone’s individuality and
+        bring out its natural beauty. We focus on clean aesthetics, durability, and meaningful
+        designs that resonate with your personality. Every collection is created in small batches to
+        maintain quality and uniqueness. We believe jewelry should not only complement your style
+        but also reflect your story.
+      </p>
+
+      <div class="about-gallery">
+        <img src="rings.png" alt="jewelry photo 1" />
+        <img src="pendants.png" alt="jewelry photo 2" />
+        <img src="necklace.png" alt="jewelry photo 3" />
+        <img src="earrings.png" alt="jewelry photo 4" />
+        <img src="multiple_pendants.png" alt="jewelry photo 5" />
       </div>
     </div>
   </div>

@@ -1,5 +1,14 @@
 <h1>Aruri Shop</h1>
 <h2>Handmade jewelry store</h2>
+
+<p class="description">
+  Welcome to Aruri — a boutique of handmade jewelry crafted in Almaty. Every piece is created with
+  natural gemstones, delicate wirework, and an eye for detail. Our collections blend minimalism,
+  elegance, and a touch of personal meaning. Each design is made in small batches, ensuring
+  uniqueness and quality in every piece. Discover jewelry that reflects your individuality and tells
+  your story.
+</p>
+
 <div class="container about-gallery">
   <div class="row">
     <div class="col-lg-4 col-sm-6 col-12">
@@ -9,15 +18,17 @@
         <p [class.popular]="likes[0]() >= 5">{{ likes[0]() }}</p>
       </div>
     </div>
+
     <div class="col-lg-4 col-sm-6 col-12">
-      <img src="/main_pic2.jpg" alt="Jewelry 1" />
+      <img src="/main_pic2.jpg" alt="Jewelry 2" />
       <div class="likes">
         <button (click)="onLike(1)">Like❤️</button>
         <p [class.popular]="likes[1]() >= 5">{{ likes[1]() }}</p>
       </div>
     </div>
+
     <div class="col-lg-4 col-sm-6 col-12">
-      <img src="/main_pic3.jpg" alt="Jewelry 1" />
+      <img src="/main_pic3.jpg" alt="Jewelry 3" />
       <div class="likes">
         <button (click)="onLike(2)">Like❤️</button>
         <p [class.popular]="likes[2]() >= 5">{{ likes[2]() }}</p>
@@ -36,9 +47,9 @@
   <button (click)="changeButton()">Change Instagram Button</button>
 </div>
 
-<div class="text-center mt-4">
+<div class="text-center mt-4 subscribe-box">
   <input type="email" [(ngModel)]="email" placeholder="Leave your email" />
   <button (click)="subscribe()">Subscribe</button>
 
-  <p>{{ emailMessage() || '...' }}</p>
+  <p class="email-message">{{ emailMessage() || '...' }}</p>
 </div>

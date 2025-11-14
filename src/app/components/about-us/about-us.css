@@ -2,7 +2,8 @@
   background-color: #6b062d;
   color: #ffffff;
   padding-top: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
+  text-align: center;
 }
 
 .logo {
@@ -19,10 +20,14 @@
 .about h1 {
   padding: 10px 0;
   margin-bottom: 20px;
+  font-weight: 600;
 }
+
 .about h2 {
-  opacity: 0.8;
+  opacity: 0.85;
+  transition: 0.4s ease;
 }
+
 .about span {
   display: block;
   width: 100px;
@@ -37,24 +42,57 @@
   border: 2px solid #4c0822;
   transition: 0.5s;
 }
+
 .about-item:hover span {
   opacity: 1;
   border: 2px solid #cc0039;
-  font-size: 42px;
-  -webkit-transform: scale(1.1, 1.1) rotate(360deg);
-  -moz-transform: scale(1.1, 1.1) rotate(360deg);
-  -o-transform: scale(1.1, 1.1) rotate(360deg);
-  transform: scale(1.1, 1.1) rotate(360deg);
+  transform: scale(1.12) rotate(360deg);
 }
+
 .about-item:hover h2 {
   opacity: 1;
-  -webkit-transform: scale(1.1, 1.1);
-  -moz-transform: scale(1.1, 1.1);
-  -o-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
+  transform: scale(1.1);
 }
+
 .about .lead {
-  color: #cc0039;
+  color: #ff879e;
   font-size: 14px;
   font-weight: bold;
+}
+
+.store-description {
+  margin-top: 40px;
+}
+
+.store-description p {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto 35px;
+  color: #ffd1dc;
+}
+
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #4c0822;
+}
+
+.about-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  border-color: #cc0039;
 }
