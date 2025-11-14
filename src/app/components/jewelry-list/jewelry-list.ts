@@ -33,14 +33,12 @@ export class JewelryList implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private api: JewelryService) {}
 
   ngOnInit(): void {
-    // 1) Реагируем на изменения URL ?q=
     this.route.queryParamMap.subscribe((params) => {
       const q = params.get('q') ?? '';
       this.query.set(q);
-      this.search$.next(q); // триггерим загрузку
+      this.search$.next(q);
     });
 
-    // 2) Реагируем на ввод пользователя
     this.search$
       .pipe(
         startWith(''),
@@ -69,7 +67,6 @@ export class JewelryList implements OnInit {
     const val = (e.target as HTMLInputElement).value;
     this.query.set(val);
 
-    // обновляем URL
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { q: val || null },
