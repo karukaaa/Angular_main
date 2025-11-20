@@ -70,7 +70,6 @@ export class JewelryList implements OnInit {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { q: val || null },
-      queryParamsHandling: 'merge',
     });
   }
 
@@ -79,7 +78,6 @@ export class JewelryList implements OnInit {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { q: null },
-      queryParamsHandling: 'merge',
     });
     this.search$.next('');
   }
