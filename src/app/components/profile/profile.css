@@ -1,0 +1,68 @@
+.profile-container {
+  max-width: 450px;
+  margin: 80px auto;
+  padding: 30px 35px;
+
+  background-color: #4b0a1d; /* тёмно-бордовый блок в стиле Jewelry Details */
+  color: #fff8f0;
+
+  border-radius: 18px;
+  border: 2px solid #ffb703;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.profile-container h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffdf6c;
+  margin-bottom: 20px;
+}
+
+.profile-container p {
+  font-size: 18px;
+  margin: 10px 0;
+  opacity: 0.9;
+}
+
+.profile-container strong {
+  color: #ffd166; /* выделяем ключевые слова */
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 26px;
+  font-size: 17px;
+  font-weight: 600;
+
+  background-color: #ffb703;
+  color: #2a0d16;
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 12px rgba(255, 183, 3, 0.35);
+}
+
+button:hover {
+  background-color: #ffd166;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 183, 3, 0.5);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Если нет юзера */
+.no-user {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 120px;
+  color: #ffe3e3;
+  opacity: 0.85;
+}

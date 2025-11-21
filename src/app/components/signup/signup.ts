@@ -5,31 +5,33 @@ import { AuthService } from '../../services/auth-service';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './login.html',
-  styleUrl: './login.css',
+  templateUrl: './signup.html',
+  styleUrl: './signup.css',
 })
-export class Login {
-  email = signal<string>('');
-  password = signal<string>('');
+export class Signup {
+  email = '';
+  password = '';
+  confirmPassword = '';
+
   loading = signal(false);
   error = signal<string | null>(null);
 
   constructor(private auth: AuthService, private router: Router) {}
 
   submitForm() {
-    console.log(this.email());
-    console.log(this.password());
-
     this.error.set(null);
+
+    if (this.password !== this.confirmPassword) {
+      this.error.set("Passwords don't match.");
+      return;
+    }
+
     this.loading.set(true);
 
-    const emailValue = this.email();
-    const passwordValue = this.password();
-
-    this.auth.login(emailValue, passwordValue).subscribe({
+    this.auth.signUp(this.email, this.password).subscribe({
       next: () => {
         this.loading.set(false);
         this.router.navigate(['/profile']);

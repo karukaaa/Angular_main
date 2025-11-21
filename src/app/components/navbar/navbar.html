@@ -2,5 +2,12 @@
   <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
   <a routerLink="/about" routerLinkActive="active">About</a>
   <a routerLink="/items" routerLinkActive="active">Jewelry List</a>
+
+  @if (!user()) {
   <a routerLink="/login" routerLinkActive="active">Login</a>
+  <a routerLink="/signup" routerLinkActive="active">Signup</a>
+  } @else {
+  <a routerLink="/profile" routerLinkActive="active">Profile</a>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+  }
 </nav>

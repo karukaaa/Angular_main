@@ -1,1 +1,26 @@
-<p>Auth to be added</p>
+<div class="login-container">
+  <h2>Login</h2>
+
+  <!-- Error -->
+  <p class="error" *ngIf="error()">{{ error() }}</p>
+
+  <!-- Loading -->
+  <p class="loading" *ngIf="loading()">Loading...</p>
+
+  <form (ngSubmit)="submitForm()">
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email" name="email" required />
+
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password" name="password" required />
+
+    <button type="submit" [disabled]="loading()">
+      {{ loading() ? 'Logging in...' : 'Login' }}
+    </button>
+  </form>
+
+  <p class="signup-link">
+    Don't have an account?
+    <a routerLink="/signup">Sign up</a>
+  </p>
+</div>
