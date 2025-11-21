@@ -1,12 +1,16 @@
 <div class="profile-container" *ngIf="user(); else noUser">
-  <h2>Profile</h2>
+  <div class="avatar-wrapper">
+    <img class="avatar" src="profile.png" alt="Profile picture" />
+  </div>
+
+  <h2>Your Profile</h2>
 
   <p><strong>Email:</strong> {{ user()?.email }}</p>
   <p><strong>User ID:</strong> {{ user()?.uid }}</p>
 
-  <button (click)="logout()">Logout</button>
+  <button class="logout-btn" (click)="logout()">Logout</button>
 </div>
 
 <ng-template #noUser>
-  <p class="no-user">You are not logged in.</p>
+  <p>You are not logged in.</p>
 </ng-template>
