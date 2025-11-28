@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { inject } from '@angular/core';
 import {
   debounceTime,
   Subject,
@@ -14,11 +14,19 @@ import {
 } from 'rxjs';
 import { Jewelry, JewelryService } from '../../services/jewelry-service';
 import { ItemCard } from '../item-card/item-card';
+import { loadItems } from '../../items/states/items.actions';
+import {
+  selectItems,
+  selectItemsLoading,
+  selectItemsError,
+} from '../../items/states/items.selectors';
+import { Store } from '@ngrx/store';
+import { AsyncPipe, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-jewelry-list',
   standalone: true,
-  imports: [ItemCard],
+  imports: [ItemCard, AsyncPipe, CommonModule],
   templateUrl: './jewelry-list.html',
   styleUrl: './jewelry-list.css',
 })
@@ -30,6 +38,12 @@ export class JewelryList implements OnInit {
 
   search$ = new Subject<string>();
 
+  private store = inject(Store);
+
+  items$ = this.store.select(selectItems);
+  loading$ = this.store.select(selectItemsLoading);
+  error$ = this.store.select(selectItemsError);
+
   constructor(private route: ActivatedRoute, private router: Router, private api: JewelryService) {}
 
   ngOnInit(): void {
@@ -39,28 +53,33 @@ export class JewelryList implements OnInit {
       this.search$.next(q);
     });
 
-    this.search$
-      .pipe(
-        startWith(''),
-        debounceTime(300),
-        distinctUntilChanged(),
-        tap((val) => {
-          this.loading.set(true);
-          this.error.set(null);
-        }),
-        switchMap((term) =>
-          this.api.getJewelry(term).pipe(
-            catchError(() => {
-              this.error.set('Failed to load items');
-              return of([] as Jewelry[]);
-            }),
-            finalize(() => {
-              this.loading.set(false);
-            })
-          )
-        )
-      )
-      .subscribe((data) => this.jewelry.set(data));
+    // // before ngrx
+    // this.search$
+    //   .pipe(
+    //     startWith(''),
+    //     debounceTime(300),
+    //     distinctUntilChanged(),
+    //     tap((val) => {
+    //       this.loading.set(true);
+    //       this.error.set(null);
+    //     }),
+    //     switchMap((term) =>
+    //       this.api.getJewelry(term).pipe(
+    //         catchError(() => {
+    //           this.error.set('Failed to load items');
+    //           return of([] as Jewelry[]);
+    //         }),
+    //         finalize(() => {
+    //           this.loading.set(false);
+    //         })
+    //       )
+    //     )
+    //   )
+    //   .subscribe((data) => this.jewelry.set(data));
+
+    this.search$.pipe(startWith(''), debounceTime(300), distinctUntilChanged()).subscribe((q) => {
+      this.store.dispatch(loadItems({ query: q }));
+    });
   }
 
   onInput(e: Event) {

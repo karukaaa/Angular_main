@@ -122,8 +122,8 @@ li:hover {
   opacity: 0.7;
 }
 
-/* Текст при отсутствии данных */
-p {
+p,
+.state {
   color: #ffe3e3;
   text-align: center;
   font-size: 18px;
@@ -131,18 +131,17 @@ p {
   opacity: 0.85;
   font-family: 'Poppins', sans-serif;
 }
-/* Контейнер для поля ввода и кнопки */
+
 .search-bar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px; /* расстояние между input и кнопкой */
+  gap: 12px;
   margin: 40px auto;
-  flex-wrap: wrap; /* адаптивность на маленьких экранах */
+  flex-wrap: wrap;
   max-width: 600px;
 }
 
-/* Поле ввода */
 .search-bar input[type='search'] {
   flex: 1;
   min-width: 250px;
@@ -163,7 +162,6 @@ p {
   box-shadow: 0 0 10px rgba(255, 183, 3, 0.1);
 }
 
-/* Эффект при фокусе */
 .search-bar input[type='search']:focus {
   border-color: #ffd166;
   box-shadow: 0 0 18px rgba(255, 183, 3, 0.45);
@@ -171,7 +169,6 @@ p {
   transform: scale(1.02);
 }
 
-/* Placeholder (текст внутри поля) */
 .search-bar input[type='search']::placeholder {
   color: #ffdf6c;
   opacity: 0.7;
@@ -179,7 +176,6 @@ p {
   letter-spacing: 0.3px;
 }
 
-/* Кнопка */
 .search-bar button {
   padding: 14px 26px;
   background-color: #ffb703;
@@ -190,30 +186,16 @@ p {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  height: 52px; /* чтобы совпадала по высоте с input */
+  height: 52px;
   box-shadow: 0 4px 12px rgba(255, 183, 3, 0.25);
 }
 
-/* Эффект при наведении */
 .search-bar button:hover {
   background-color: #ffd166;
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(255, 183, 3, 0.35);
 }
 
-/* Эффект при нажатии */
 .search-bar button:active {
   transform: scale(0.98);
-}
-
-/* Адаптивность для маленьких экранов */
-@media (max-width: 480px) {
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .search-bar button {
-    width: 100%;
-  }
 }

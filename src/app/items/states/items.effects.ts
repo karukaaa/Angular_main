@@ -20,7 +20,7 @@ export class ItemsEffects {
     this.actions$.pipe(
       ofType(loadItems),
       switchMap(({ query }) =>
-        this.itemsService.getJewelry(query ?? '').pipe(
+        this.itemsService.getJewelry(query).pipe(
           map((items) => loadItemsSuccess({ items })),
           catchError(() =>
             of(
