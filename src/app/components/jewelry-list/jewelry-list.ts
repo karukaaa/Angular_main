@@ -34,7 +34,7 @@ export class JewelryList implements OnInit {
   loading$ = this.store.select(selectItemsLoading);
   error$ = this.store.select(selectItemsError);
 
-  constructor(private route: ActivatedRoute, private router: Router, private api: JewelryService) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
