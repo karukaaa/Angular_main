@@ -1,17 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { inject } from '@angular/core';
-import {
-  debounceTime,
-  Subject,
-  switchMap,
-  startWith,
-  distinctUntilChanged,
-  catchError,
-  finalize,
-  of,
-  tap,
-} from 'rxjs';
+import { debounceTime, Subject, startWith, distinctUntilChanged } from 'rxjs';
 import { Jewelry, JewelryService } from '../../services/jewelry-service';
 import { ItemCard } from '../item-card/item-card';
 import { loadItems } from '../../items/states/items.actions';
