@@ -1,22 +1,30 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { JewelryService } from '../../services/jewelry-service';
-import * as ItemsActions from './items.actions';
+import {
+  loadItem,
+  loadItems,
+  loadItemSuccess,
+  loadItemsFailure,
+  loadItemFailure,
+  loadItemsSuccess,
+} from './items.actions';
 import { catchError, map, switchMap, of } from 'rxjs';
 
 @Injectable()
 export class ItemsEffects {
-  constructor(private actions$: Actions, private itemsService: JewelryService) {}
+  private actions$ = inject(Actions);
+  private itemsService = inject(JewelryService);
 
   loadItems$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ItemsActions.loadItems),
+      ofType(loadItems),
       switchMap(({ query }) =>
         this.itemsService.getJewelry(query ?? '').pipe(
-          map((items) => ItemsActions.loadItemsSuccess({ items })),
+          map((items) => loadItemsSuccess({ items })),
           catchError(() =>
             of(
-              ItemsActions.loadItemsFailure({
+              loadItemsFailure({
                 error: 'Failed to load items',
               })
             )
@@ -28,13 +36,13 @@ export class ItemsEffects {
 
   loadItem$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ItemsActions.loadItem),
+      ofType(loadItem),
       switchMap(({ id }) =>
         this.itemsService.getJewelryById(id).pipe(
-          map((item) => ItemsActions.loadItemSuccess({ item })),
+          map((item) => loadItemSuccess({ item })),
           catchError(() =>
             of(
-              ItemsActions.loadItemFailure({
+              loadItemFailure({
                 error: 'Failed to load item details',
               })
             )

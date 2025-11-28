@@ -2,10 +2,14 @@
   <h2>Login</h2>
 
   <!-- Error -->
-  <p class="error" *ngIf="error()">{{ error() }}</p>
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
 
   <!-- Loading -->
-  <p class="loading" *ngIf="loading()">Loading...</p>
+  @if (loading()) {
+    <p class="loading">Loading...</p>
+  }
 
   <form (ngSubmit)="submitForm()">
     <label>Email</label>

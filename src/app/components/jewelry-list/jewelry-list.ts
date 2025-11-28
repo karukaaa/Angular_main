@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import {
   debounceTime,
   Subject,
@@ -18,7 +18,7 @@ import { ItemCard } from '../item-card/item-card';
 @Component({
   selector: 'app-jewelry-list',
   standalone: true,
-  imports: [CommonModule, ItemCard],
+  imports: [ItemCard],
   templateUrl: './jewelry-list.html',
   styleUrl: './jewelry-list.css',
 })
