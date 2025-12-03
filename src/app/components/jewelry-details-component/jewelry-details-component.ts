@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
-import { Jewelry, JewelryService } from '../../services/jewelry-service';
+import { Jewelry } from '../../services/jewelry-service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Store } from '@ngrx/store';
 import {

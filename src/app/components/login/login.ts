@@ -1,4 +1,3 @@
-
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
@@ -35,6 +34,7 @@ export class Login {
         this.router.navigate(['/profile']);
       },
       error: (errMsg: string) => {
+        this.password.set('');
         this.loading.set(false);
         this.error.set(errMsg);
       },
