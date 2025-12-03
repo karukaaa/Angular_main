@@ -1,11 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })

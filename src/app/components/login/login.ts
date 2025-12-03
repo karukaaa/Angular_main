@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
@@ -7,7 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -35,6 +34,7 @@ export class Login {
         this.router.navigate(['/profile']);
       },
       error: (errMsg: string) => {
+        this.password.set('');
         this.loading.set(false);
         this.error.set(errMsg);
       },

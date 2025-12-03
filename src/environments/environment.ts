@@ -8,4 +8,6 @@ export const environment = {
     appId: '1:1074509203758:web:4d57d5c118d0f99e5f12bf',
     measurementId: 'G-3ZLE2XZSB1',
   },
+  production: false,
+  serviceWorker: true,
 };

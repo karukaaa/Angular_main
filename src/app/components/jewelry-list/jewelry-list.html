@@ -9,16 +9,18 @@
   <button (click)="refresh()">Load</button>
 </div>
 
-@if (loading()) {
-<p>Loading...</p>
-} @if (error()) {
-<p style="color: red">{{ error() }}</p>
-} @if (!loading() && jewelry().length > 0) {
-<ul>
-  @for (item of jewelry(); track item.id) {
-  <app-item-card [item]="item"></app-item-card>
-  }
+<div *ngIf="loading$ | async" class="state">Loading...</div>
+
+<div *ngIf="error$ | async as err" class="state">
+  <p style="color: red">{{ err }}</p>
+</div>
+
+<ul *ngIf="items$ | async as items">
+  <ng-container *ngIf="items.length > 0; else noResults">
+    <app-item-card *ngFor="let item of items" [item]="item"></app-item-card>
+  </ng-container>
 </ul>
-} @else if (!loading()) {
-<p>No jewelry found</p>
-}
+
+<ng-template #noResults>
+  <p>No jewelry found</p>
+</ng-template>

@@ -13,7 +13,9 @@
 
     <button type="submit" [disabled]="loading()">Sign Up</button>
 
-    <p class="error" *ngIf="error()">{{ error() }}</p>
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
 
     <p class="link">
       Already have an account?
