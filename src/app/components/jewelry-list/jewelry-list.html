@@ -15,11 +15,13 @@
   <p style="color: red">{{ err }}</p>
 </div>
 
-<ul *ngIf="items$ | async as items">
-  <ng-container *ngIf="items.length > 0; else noResults">
-    <app-item-card *ngFor="let item of items" [item]="item"></app-item-card>
-  </ng-container>
-</ul>
+<div *ngIf="!(loading$ | async) && !(error$ | async)">
+  <ul *ngIf="items$ | async as items">
+    <ng-container *ngIf="items.length > 0; else noResults">
+      <app-item-card *ngFor="let item of items" [item]="item"> </app-item-card>
+    </ng-container>
+  </ul>
+</div>
 
 <ng-template #noResults>
   <p>No jewelry found</p>

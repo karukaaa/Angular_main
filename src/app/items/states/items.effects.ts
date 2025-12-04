@@ -9,7 +9,7 @@ import {
   loadItemFailure,
   loadItemsSuccess,
 } from './items.actions';
-import { catchError, map, switchMap, of } from 'rxjs';
+import { catchError, map, switchMap, of, timeout } from 'rxjs';
 
 @Injectable()
 export class ItemsEffects {
@@ -39,6 +39,7 @@ export class ItemsEffects {
       ofType(loadItem),
       switchMap(({ id }) =>
         this.itemsService.getJewelryById(id).pipe(
+          timeout(2000),
           map((item) => loadItemSuccess({ item })),
           catchError(() =>
             of(
